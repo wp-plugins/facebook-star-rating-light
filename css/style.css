@@ -1,0 +1,66 @@
+/* START COMPARISON TABLE STYLES */
+#comparetable {width: 100%; table-layout: fixed; text-align: center; margin: 4em 0; border-collapse: collapse; }
+#comparetable tr {background: transparent!important;}
+#comparetable td,
+#comparetable th {padding: 10px; text-align: center;}
+#comparetable td.rowTitle {text-align: left;}
+.blank {background: none!important; border: none!important;}
+ .blackbold th {font-size: 22px; color: #efefef; text-align: center; font-weight: 600; border: 1px solid #9fb6c8;
+              background: #333333; /* Old browsers */
+              background: -moz-linear-gradient(top, #333333 0%, #191919 100%); /* FF3.6+ */
+              background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#333333), color-stop(100%,#191919)); /* Chrome,Safari4+ */
+              background: -webkit-linear-gradient(top, #333333 0%,#191919 100%); /* Chrome10+,Safari5.1+ */
+              background: -o-linear-gradient(top, #333333 0%,#191919 100%); /* Opera 11.10+ */
+              background: -ms-linear-gradient(top, #333333 0%,#191919 100%); /* IE10+ */
+              background: linear-gradient(to bottom, #333333 0%,#191919 100%); /* W3C */
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#191919',GradientType=0 ); /* IE6-9 */
+ }
+ .blackbold td {background-color: #f0f1f1; border: 1px solid #c8d6e2;} 
+ .blackbold td.rowTitle {border-left: 4px solid #222}
+/* END COMPARISON TABLE STYLES */
+
+
+#comparetable .yes {
+background: url('../assets/images/yes.png') no-repeat center center;
+}
+#comparetable .no {
+background: url('../assets/images/no.png') no-repeat center center;
+}
+#comparetable th  span{
+	float:left;
+	position:relative;
+	top:10px;
+	padding-left:10px;
+
+}
+
+#comparetable th img
+{
+	position:relative;
+	float:left;
+	height:30%;
+	width:auto;
+}
+
+.fbs_admin{
+overflow:hidden;
+}
+input[type="number"]{
+    width: 70px;
+    background: #g0g0g0;
+	}
+.fbs_info{
+   background: white;
+}
+	
+input[type="number"], textarea, .fbs_info{
+    border-radius: 1em;
+    border: none;
+    padding: 0.2em;
+    color: #444;
+    font-size: 1.1em;
+    padding-left: 1.5em;
+    
+    outline: none;
+    box-shadow: 0 4px 6px -5px hsl(0, 0%, 40%), inset 0px 4px 6px -5px hsl(0, 0%, 2%)
+}

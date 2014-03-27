@@ -456,7 +456,7 @@ $comparison='<table id="comparetable" class="blackbold form-table fbs_info">
 
 			//fetch rating size
 			$star_rating = array();
-			$pattern = '/style="clip:\Wrect\(\d{1,2}px,\W(\d{1,2})px,\W\d{1,2}px,\W\d{1,2}px\)/i';
+			$pattern = '/style="clip:\Wrect\(\d{1,2}px,\W(\d{1,2})px,\W16px,\W\d{1,2}px\)/i';
 			preg_match($pattern, $content, $star_rating);
 			//stars
 			if (isset($star_rating[1])) {

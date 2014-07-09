@@ -3,7 +3,7 @@
 /* Plugin Name: FACEBOOK STAR RATING LIGHT
  * Plugin URI: http://www.intelligent-it.asia
  * Description: <strong>Import the Star rating &#10032;&#10032;&#10032;&#10032;&#10032; from your Facebook Page and display it on your WordPress blog.</strong>
- * Version: 1.0
+ * Version: 1.1
  * Author: Intelligent IT
  * Author URI: http://www.intelligent-it.asia
  * @author Henry Krupp <henry.krupp@gmail.com> 
@@ -57,11 +57,12 @@ function add_fbs_stylesheet_to_admin( $page ) {
 function fbstars_activate() {
 global $fb_star_template;
     //initialize plugin
+	load_plugin_textdomain('facebookstar-light');
 	$fbs_options = get_option('fbs_options');
 	if(null == get_option('fbs_options')){
 			//defaults
-			$fbs_options['fbs_page_name'] = 'your Facebook page name';
-			$fbs_options['fbs_page_url'] = 'the URL to your Facebook page';
+			$fbs_options['fbs_page_name'] = __('your Facebook page name','facebookstar-light');
+			$fbs_options['fbs_page_url'] = __('the URL to your Facebook page','facebookstar-light');
 			$fbs_options['fbs_stars'] = '';
 			$fbs_options['fbs_rating_text'] = '1';
 			$fbs_options['fbs_rating_text_style'] = 'font-weight:normal;padding-left:5px;position:relative;color:grey;font-size:11px;';
@@ -141,7 +142,7 @@ class FBSSettingsPage
 						</td>
 						<td class="forminp" align="right"> 
 						FACEBOOK STAR RATING LIGHT made by</br>
-							<a href="http://intelligent-it.asia" title="intelligent-it.asia"><img alt="'. __('FACEBOOK STAR RATING LIGTH Plugin was brought to you by intelligent-it.asia.','FBS_Light').'" src="'.plugins_url('assets/images/intelligent-it-logo.png',__file__).'" /></a></br>
+							<a href="http://intelligent-it.asia" title="intelligent-it.asia"><img alt="'. __('FACEBOOK STAR RATING LIGTH Plugin was brought to you by intelligent-it.asia.','facebookstar-light').'" src="'.plugins_url('assets/images/intelligent-it-logo.png',__file__).'" /></a></br>
 							The IT you deserve.
 						</td>
 						<td align="right">
@@ -166,7 +167,7 @@ class FBSSettingsPage
 		if (isset($this->options['fbs_page_url'])){
 			$this->options['fbs_stars']=mysql_real_escape_string(get_fbs_stars($this->options['fbs_page_url']));
 			}else{
-				$this->options['fbs_stars']='Please register an existing Facebook Page with existing rating!';
+				$this->options['fbs_stars']=__('Please register an existing Facebook Page with existing rating!','facebookstar-light');
 			}
         ?>
         <div class="wrap">
@@ -292,17 +293,17 @@ class FBSSettingsPage
 	public function show_fbs_stars() {
 	$stars = html_entity_decode(nl2br(stripslashes($this->options['fbs_stars'])));
 	echo $stars;
-	echo "<br>Use <code>[fb_stars]</code> as shortcode in your page, posts, or sidebar";
+	echo '<br>'.__('Use <code>[fb_stars]</code> as shortcode in your page, posts, or sidebar','facebookstar-light');
 	} 
 
     public function rating_text_callback()
     {
-		echo '<input name="fbs_options[fbs_rating_text]" id="fbs_rating_text" type="checkbox" value="1" class="code" ' . checked( 1, $this->options['fbs_rating_text'], false ) . ' /> Rating text';
+		echo '<input name="fbs_options[fbs_rating_text]" id="fbs_rating_text" type="checkbox" value="1" class="code" ' . checked( 1, $this->options['fbs_rating_text'], false ) . ' /> '.__('Rating text','facebookstar-light');
 
     }
     public function rating_text_style_callback()
     {
-		echo '<input name="fbs_options[fbs_rating_text_style]" id="fbs_rating_text_style" type="textarea" value="'.$this->options['fbs_rating_text_style'].'" class="code"  style=";width:430px;" /><br> Use CSS to style the rating text.';
+		echo '<input name="fbs_options[fbs_rating_text_style]" id="fbs_rating_text_style" type="textarea" value="'.$this->options['fbs_rating_text_style'].'" class="code"  style=";width:430px;" /><br> '.__('Use CSS to style the rating text.','facebookstar-light');
 
     }	
 }

@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FACEBOOK STAR RATING LIGHT v1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-07-09 12:26:28+0000\n"
+"Last-Translator: admin <henry.krupp@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: facebookstar-light.php:64
+#@ facebookstar-light
+msgid "your Facebook page name"
+msgstr "der Name deiner Facebook Seite"
+
+#: facebookstar-light.php:65
+#@ facebookstar-light
+msgid "the URL to your Facebook page"
+msgstr "die Web-Adresse deiner Facebook Seite"
+
+#: facebookstar-light.php:145
+#@ facebookstar-light
+msgid "FACEBOOK STAR RATING LIGTH Plugin was brought to you by intelligent-it.asia."
+msgstr "FACEBOOK STAR RATING LIGTH Plugin wurde dir von intelligent-it.asia bereit gestellt."
+
+#: facebookstar-light.php:170
+#@ facebookstar-light
+msgid "Please register an existing Facebook Page with existing rating!"
+msgstr "Bitte registriere eine existierende Facebook Seite mit vorhandenem Rating!"
+
+#: facebookstar-light.php:296
+#@ facebookstar-light
+msgid "Use <code>[fb_stars]</code> as shortcode in your page, posts, or sidebar"
+msgstr "Benutzee <code>[fb_stars]</code> als shortcode in deinen Seiten, Posts, oder Sidebar"
+
+#: facebookstar-light.php:301
+#@ facebookstar-light
+msgid "Rating text"
+msgstr "Rating Text"
+
+#: facebookstar-light.php:306
+#@ facebookstar-light
+msgid "Use CSS to style the rating text."
+msgstr "Benütze CSS um den Rating Text stylen."
+

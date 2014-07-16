@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FACEBOOK STAR RATING LIGHT v1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-07-09 16:47+0100\n"
+"Last-Translator: Borisa Djuraskovic <borisad@webhostinghub.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"Language: de_DE\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ facebookstar-light
+#: facebookstar-light.php:64
+msgid "your Facebook page name"
+msgstr "ime vase  Facebook  stranice"
+
+# @ facebookstar-light
+#: facebookstar-light.php:65
+msgid "the URL to your Facebook page"
+msgstr "URL adresa na vasoj Facebook stranici"
+
+# @ facebookstar-light
+#: facebookstar-light.php:145
+msgid ""
+"FACEBOOK STAR RATING LIGTH Plugin was brought to you by intelligent-it.asia."
+msgstr ""
+"FACEBOOK STAR RATING LIGTH Plugin vas je doveo do  inteligentnom - it.asia ."
+
+# @ facebookstar-light
+#: facebookstar-light.php:170
+msgid "Please register an existing Facebook Page with existing rating!"
+msgstr ""
+"Molimo vas da  registrujete  postojucu Facebook Stranicu sa postojecim "
+"rejtingom!"
+
+# @ facebookstar-light
+#: facebookstar-light.php:296
+msgid ""
+"Use <code>[fb_stars]</code> as shortcode in your page, posts, or sidebar"
+msgstr ""
+"Koristite<code>[fb_stars]</code> kao shortcode na vasoj stranici, poruku, "
+"ili Sidebar"
+
+# @ facebookstar-light
+#: facebookstar-light.php:301
+msgid "Rating text"
+msgstr "Rejting Teksta"
+
+# @ facebookstar-light
+#: facebookstar-light.php:306
+msgid "Use CSS to style the rating text."
+msgstr "Koristi CSS kao stil Rejtinga teksta."

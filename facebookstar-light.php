@@ -3,7 +3,7 @@
 /* Plugin Name: FACEBOOK STAR RATING LIGHT
  * Plugin URI: http://www.intelligent-it.asia
  * Description: <strong>Import the Star rating &#10032;&#10032;&#10032;&#10032;&#10032; from your Facebook Page and display it on your WordPress blog.</strong>
- * Version: 1.1
+ * Version: 1.2
  * Author: Intelligent IT
  * Author URI: http://www.intelligent-it.asia
  * @author Henry Krupp <henry.krupp@gmail.com> 

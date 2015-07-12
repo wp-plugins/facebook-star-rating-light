@@ -3,7 +3,7 @@
 /* Plugin Name: FACEBOOK STAR RATING LIGHT
  * Plugin URI: http://www.intelligent-it.asia
  * Description: <strong>Import the Star rating &#10032;&#10032;&#10032;&#10032;&#10032; from your Facebook Page and display it on your WordPress blog.</strong>
- * Version: 1.2
+ * Version: 1.3
  * Author: Intelligent IT
  * Author URI: http://www.intelligent-it.asia
  * @author Henry Krupp <henry.krupp@gmail.com> 
@@ -21,6 +21,7 @@ register_deactivation_hook( __FILE__, 'fbstars_deactivation' );
  * register styles only for posts with shortcode
  */
 add_filter('the_posts', 'conditionally_add_fbs_style'); 
+add_filter('widget_text', 'conditionally_add_fbs_style_for_widget');
 function conditionally_add_fbs_style($posts){
 	if (empty($posts)) return $posts;
  
@@ -38,6 +39,23 @@ function conditionally_add_fbs_style($posts){
 	}
  
 	return $posts;
+}
+function conditionally_add_fbs_style_for_widget($widget_text){
+	if (empty($widget_text)) return $widget_text;
+ 
+	$shortcode_found = false; // use this flag to see if styles and scripts need to be enqueued
+
+		if (stripos($widget_text, '[fb_stars]') !== false) {
+			$shortcode_found = true; // bingo!
+		}
+
+ 
+	if ($shortcode_found) {
+		// enqueue here
+		wp_enqueue_style( 'fbs-style', plugins_url('css/fb_stars.css', __FILE__));
+	}
+ 
+	return $widget_text;
 }
 
 /**
@@ -256,8 +274,8 @@ class FBSSettingsPage
 			$new_input['fbs_rating_text_style'] = sanitize_text_field($input['fbs_rating_text_style']);
         if( isset( $input['fbs_page_name'] ) )
 			$new_input['fbs_page_url'] = sanitize_text_field($input['fbs_page_url']);
-		$new_input['fbs_rating_text'] = $input['fbs_rating_text'];
-		$new_input['fbs_stars'] = $input['fbs_stars'];
+		$new_input['fbs_rating_text'] = @$input['fbs_rating_text'];
+		$new_input['fbs_stars'] = @$input['fbs_stars'];
 		
 
         return $new_input;
@@ -451,22 +469,32 @@ $comparison='<table id="comparetable" class="blackbold form-table fbs_info">
 			)
 		);
 		$context = stream_context_create($http_options);
-		$content = @file_get_contents($url, false, $context);
+		$content = @file_get_contents($url.'?sk=reviews', false, $context); //new .'?sk=reviews'
 			
 		if (!$content === false) {	//valid  URL
 
 			//fetch rating size
 			$star_rating = array();
-			$pattern = '/style="clip:\Wrect\(\d{1,2}px,\W(\d{1,2})px,\W16px,\W\d{1,2}px\)/i';
+			// $pattern = '/style="clip:\Wrect\(\d{1,2}px,\W(\d{1,2})px,\W(\d{1,2})px,\W\d{1,2}px\)/i';
+			$pattern = '/<div class="_3-ma _2bne">(.*?)<\/div>+/i';
 			preg_match($pattern, $content, $star_rating);
 			//stars
 			if (isset($star_rating[1])) {
 					//scale stars
-					$rating_scaling=$star_rating[1]; 
+
+					$x = $star_rating[1];
+
+					$multiplier = ($x-1) /abs($x-1) + ($x-2) /abs($x-2) + ($x-3) /abs($x-3) + ($x-4) /abs($x-4)  + 4;
+					$rating_scaling = $star_rating[1]/5*100 + $multiplier;
+
+					// print_r($star_rating);
 
 					//fetch rating text
 					$rt = array();
-					$pattern = '/<div.class="_6a._5wfv">(.*?)<\/div>+/';
+					//$pattern = '/<div.class="_6a._5wfv">(.*?)<\/div>+/';
+					// $pattern = '/<a.*class="_5sqs">(.*?)<\/a>+/';
+					$pattern = '/<div class="mvm uiP fsm">(.*?)<\/div>+/'; //
+					// <<div class="mvm uiP fsm">5.0 of 5 stars</div>
 					preg_match($pattern, $content, $rt);
 					$rating_text= $rt[1];
 				}else{
@@ -487,8 +515,8 @@ $comparison='<table id="comparetable" class="blackbold form-table fbs_info">
 			$html_out = preg_replace('/#star_rating#/i', $rating_scaling, $html_out);
 			
 			//#star_size#
-			$html_out = str_replace('#star_width#',14,$html_out);
-			$html_out = str_replace('#star_height#',16,$html_out);
+			$html_out = str_replace('#star_width#',20,$html_out);
+			$html_out = str_replace('#star_height#',20,$html_out);
 				
 			//#rating-text# //<div class="_6a _rating_text" style="#rating_text_style#">'.$rating_text[1].'</div>
 			if ($options['fbs_rating_text']=="1"){
